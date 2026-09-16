@@ -192,5 +192,7 @@ private static async Task Method1Async()
 - Как дополнительный способ защитится от не вызова .Dispose().
 
 
->## IEnumerable<T> vs IQueryable<T> (3)
+>## IEnumerable<T> vs IQueryable<T>
+> Частота: средне
+
 IQueryable\<T> используется для работы с удаленными источниками данных, а IEnumerable\<T> для данных, которые уже в памяти или будет вычеслины.
