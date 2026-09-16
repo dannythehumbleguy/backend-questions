@@ -14,4 +14,4 @@
 > 2. Желательно избегать общих/широких вопросов по типу "Что такое шардирование?".<br>
 > 3. Вопросы учитываются только на позиции middle-senior.
 
-**directed by ** [@danny_v3](https://t.me/danny_v3)
+**Directed by** [@danny_v3](https://t.me/danny_v3)
