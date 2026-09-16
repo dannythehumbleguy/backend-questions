@@ -8,10 +8,6 @@
 - [Backend](backend/questions.md)
 - [.NET C#](dotnet/questions.md)
 - [Базовые понятия backend](backend/basics.md)
-- [Базовые понятия .NET](dotnet/basics.md)
-- [Практические задачи](backend/practical-tasks.md)
-- [Кейсы для бэкенда](backend/cases.md)
-- [Темы, которые нужно добавить](topics-to-add.md)
 
 Для новых вопросов частота перенесена из числовых отметок Notion: 0–1 — редко, 2 — средне, 3 и более — часто. Если отметки нет, указано «не указана». Частоты уже перенесённых вопросов сохранены.
 
