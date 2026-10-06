@@ -9,16 +9,10 @@
 
 <img src="../images/normal-forms-1.en.svg" alt="Normal forms 1" width="1000">
 
-[Editable Excalidraw diagram](../images/normal-forms-1.en.excalidraw)
-
 1. **Second normal form** — all non-key attributes depend on the primary key.
 
 <img src="../images/normal-forms-2.en.svg" alt="Normal forms 2" width="1000">
 
-[Editable Excalidraw diagram](../images/normal-forms-2.en.excalidraw)
-
 1. **Third normal form** — columns depend on the primary key and do not depend on other non-key columns.
 
 <img src="../images/normal-forms-3.en.svg" alt="Normal forms 3" width="1000">
-
-[Editable Excalidraw diagram](../images/normal-forms-3.en.excalidraw)

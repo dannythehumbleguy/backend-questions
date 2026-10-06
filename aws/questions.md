@@ -57,8 +57,6 @@
 
 <img src="diagrams/iam-groups.svg" alt="IAM: пользователи, группы и политики" width="900">
 
-[Схема в Excalidraw](diagrams/iam-groups.excalidraw)
-
 >## Из чего состоит IAM policy?
 
 Политика — JSON с версией языка (`Version`) и набором правил (`Statement`). Основные поля правила:
@@ -72,8 +70,6 @@
 
 <img src="diagrams/iam-policy-structure.svg" alt="IAM policy: структура правила доступа" width="900">
 
-[Схема в Excalidraw](diagrams/iam-policy-structure.excalidraw)
-
 ## EC2 и хранилища
 
 >## Что предоставляет EC2?
@@ -81,8 +77,6 @@
 **EC2 (Elastic Compute Cloud)** — виртуальные машины с выбранными CPU, RAM, ОС и сетью. Данные можно хранить на **EBS**, трафик распределять через **ELB**, а число инстансов менять через **ASG**.
 
 <img src="diagrams/ec2-overview.svg" alt="EC2: вычисления, диски, балансировка и масштабирование" width="900">
-
-[Схема в Excalidraw](diagrams/ec2-overview.excalidraw)
 
 >## Какие варианты оплаты и размещения EC2 существуют?
 
@@ -98,11 +92,7 @@
 
 <img src="diagrams/ec2-purchasing-options.svg" alt="EC2: выбор модели оплаты и размещения" width="900">
 
-[Схема в Excalidraw](diagrams/ec2-purchasing-options.excalidraw)
-
 <img src="diagrams/ec2-purchasing-hotel-analogy.svg" alt="EC2: варианты покупки на примере отеля" width="900">
-
-[Схема в Excalidraw](diagrams/ec2-purchasing-hotel-analogy.excalidraw)
 
 Типы инстансов удобно сравнивать в [EC2 Instance Comparison](https://instances.vantage.sh/).
 
@@ -122,15 +112,11 @@ ssh -i .\TestServer1_Key.pem ec2-user@<public-ip>
 
 <img src="diagrams/ebs-availability-zones.svg" alt="EBS: подключение томов в одной Availability Zone" width="900">
 
-[Схема в Excalidraw](diagrams/ebs-availability-zones.excalidraw)
-
 >## Что позволяет EBS Multi-Attach?
 
 **Multi-Attach** позволяет подключить один том `io1` или `io2` к нескольким совместимым EC2-инстансам в одной AZ, до 16 инстансов. Приложение должно координировать одновременную запись; нужна файловая система, рассчитанная на совместный доступ. Это не обычная общая папка, как EFS.
 
 <img src="diagrams/ebs-multi-attach.svg" alt="EBS Multi-Attach: один том и несколько EC2" width="900">
-
-[Схема в Excalidraw](diagrams/ebs-multi-attach.excalidraw)
 
 >## Какие типы EBS-томов существуют?
 
@@ -143,15 +129,11 @@ ssh -i .\TestServer1_Key.pem ec2-user@<public-ip>
 
 <img src="diagrams/ebs-volume-types.svg" alt="EBS: тип диска зависит от профиля I/O" width="900">
 
-[Схема в Excalidraw](diagrams/ebs-volume-types.excalidraw)
-
 >## Как перенести EBS-данные в другую AZ?
 
 Создать **snapshot**, затем восстановить из него новый EBS-том в нужной AZ. Для переноса в другой регион сначала копируют snapshot в этот регион.
 
 <img src="diagrams/ebs-snapshot-migration.svg" alt="EBS: перенос данных через snapshot" width="900">
-
-[Схема в Excalidraw](diagrams/ebs-snapshot-migration.excalidraw)
 
 >## Какие дополнительные возможности есть у EBS snapshots?
 
@@ -160,8 +142,6 @@ ssh -i .\TestServer1_Key.pem ec2-user@<public-ip>
 - **Fast Snapshot Restore (FSR)** — создание тома с полной производительностью без ожидания загрузки блоков при первом чтении; оплачивается отдельно.
 
 <img src="diagrams/ebs-snapshot-features.svg" alt="EBS snapshots: архив, защита удаления и быстрый старт" width="900">
-
-[Схема в Excalidraw](diagrams/ebs-snapshot-features.excalidraw)
 
 >## Чем Instance Store отличается от EBS?
 
@@ -175,8 +155,6 @@ ssh -i .\TestServer1_Key.pem ec2-user@<public-ip>
 
 <img src="diagrams/efs-overview.svg" alt="EFS: общая файловая система для нескольких AZ" width="900">
 
-[Схема в Excalidraw](diagrams/efs-overview.excalidraw)
-
 >## Какие классы и варианты размещения есть у EFS?
 
 - **Standard** — часто используемые файлы.
@@ -186,8 +164,6 @@ ssh -i .\TestServer1_Key.pem ec2-user@<public-ip>
 **Lifecycle Management** переводит файлы между классами. **Regional** хранит данные в нескольких AZ; **One Zone** — в одной, поэтому подходит для данных, которые можно восстановить. Фиксированное соотношение стоимости EFS и EBS зависит от региона, класса и нагрузки.
 
 <img src="diagrams/efs-storage-classes.svg" alt="EFS: lifecycle и размещение файлов" width="900">
-
-[Схема в Excalidraw](diagrams/efs-storage-classes.excalidraw)
 
 ## Балансировка и масштабирование
 
@@ -201,11 +177,7 @@ ssh -i .\TestServer1_Key.pem ec2-user@<public-ip>
 
 <img src="diagrams/nlb-overview.svg" alt="NLB: TCP / UDP / TLS и статический IP для AZ" width="900">
 
-[Схема в Excalidraw](diagrams/nlb-overview.excalidraw)
-
 <img src="diagrams/gateway-load-balancer.svg" alt="Gateway Load Balancer: проверка трафика appliances" width="900">
-
-[Схема в Excalidraw](diagrams/gateway-load-balancer.excalidraw)
 
 >## Как ALB выбирает приложение и как настроить доступ к EC2?
 
@@ -218,8 +190,6 @@ ssh -i .\TestServer1_Key.pem ec2-user@<public-ip>
 
 <img src="diagrams/alb-routing.svg" alt="ALB: маршрутизация HTTP-запросов по пути" width="900">
 
-[Схема в Excalidraw](diagrams/alb-routing.excalidraw)
-
 >## Что меняет Cross-Zone Load Balancing?
 
 При включённом **cross-zone** узел балансировщика распределяет трафик по целям в разных AZ. При выключенном — по целям своей AZ.
@@ -227,8 +197,6 @@ ssh -i .\TestServer1_Key.pem ec2-user@<public-ip>
 Если AZ получают по 50% входящего трафика, а в них 2 и 8 одинаковых инстансов, без cross-zone каждый инстанс получит 25% и 6,25% соответственно. С cross-zone каждый из 10 получит около 10%. Настройки по умолчанию и стоимость межзонального трафика зависят от вида балансировщика.
 
 <img src="diagrams/elb-cross-zone.svg" alt="Cross-zone load balancing: распределение между AZ" width="900">
-
-[Схема в Excalidraw](diagrams/elb-cross-zone.excalidraw)
 
 >## Какие параметры ёмкости есть у ASG?
 
@@ -239,8 +207,6 @@ ssh -i .\TestServer1_Key.pem ec2-user@<public-ip>
 - **Maximum** — верхняя граница; scaling policy не может превысить её.
 
 <img src="diagrams/asg-capacity.svg" alt="ASG: minimum, desired и maximum capacity" width="900">
-
-[Схема в Excalidraw](diagrams/asg-capacity.excalidraw)
 
 >## По каким метрикам и политикам масштабируется ASG?
 
@@ -254,15 +220,11 @@ ssh -i .\TestServer1_Key.pem ec2-user@<public-ip>
 
 <img src="diagrams/asg-scaling-metrics.svg" alt="ASG: метрики управляют количеством инстансов" width="900">
 
-[Схема в Excalidraw](diagrams/asg-scaling-metrics.excalidraw)
-
 >## Для чего нужен ASG Instance Refresh?
 
 **Instance Refresh** постепенно заменяет инстансы, например после изменения AMI или launch template. Параметр минимальной здоровой ёмкости задаёт, сколько инстансов должно оставаться доступно во время обновления, а **instance warmup** даёт новым инстансам время на запуск и прогрев.
 
 <img src="diagrams/asg-instance-refresh.svg" alt="ASG Instance Refresh: постепенная замена инстансов" width="900">
-
-[Схема в Excalidraw](diagrams/asg-instance-refresh.excalidraw)
 
 ## RDS и ElastiCache
 
@@ -272,15 +234,11 @@ ssh -i .\TestServer1_Key.pem ec2-user@<public-ip>
 
 <img src="diagrams/rds-overview.svg" alt="RDS: что управляется AWS" width="900">
 
-[Схема в Excalidraw](diagrams/rds-overview.excalidraw)
-
 >## Когда срабатывает RDS Storage Auto Scaling?
 
 Автоматически увеличивает выделенное хранилище до заданного **maximum storage threshold**. Основные условия: свободно не более 10%, это состояние длится не менее 5 минут, завершена предыдущая storage optimization и за последние 24 часа было менее 4 изменений хранилища. Уменьшение хранилища автоматически не выполняется. Текущие условия описаны в [документации RDS Storage Auto Scaling](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.Autoscaling.html).
 
 <img src="diagrams/rds-storage-auto-scaling.svg" alt="RDS Storage Auto Scaling: условия и верхняя граница" width="900">
-
-[Схема в Excalidraw](diagrams/rds-storage-auto-scaling.excalidraw)
 
 >## Для чего нужна RDS Read Replica и чем она отличается от Multi-AZ?
 
@@ -290,15 +248,11 @@ ssh -i .\TestServer1_Key.pem ec2-user@<public-ip>
 
 <img src="diagrams/rds-read-replica.svg" alt="RDS: разгрузка основной БД с помощью read replica" width="900">
 
-[Схема в Excalidraw](diagrams/rds-read-replica.excalidraw)
-
 >## Как влияет регион Read Replica на сетевую стоимость?
 
 Для репликации между RDS-инстансами в одном регионе, включая разные AZ, RDS не взимает плату за передачу данных репликации. Для cross-region replication возникает стоимость межрегиональной передачи. Это не означает, что любой трафик приложения к БД бесплатен.
 
 <img src="diagrams/rds-read-replica-network-cost.svg" alt="RDS read replicas: стоимость передачи данных репликации" width="900">
-
-[Схема в Excalidraw](diagrams/rds-read-replica-network-cost.excalidraw)
 
 >## Какую проблему решает RDS Proxy?
 
@@ -308,8 +262,6 @@ ssh -i .\TestServer1_Key.pem ec2-user@<public-ip>
 
 <img src="diagrams/rds-proxy.svg" alt="RDS Proxy: много клиентов, общий пул соединений" width="900">
 
-[Схема в Excalidraw](diagrams/rds-proxy.excalidraw)
-
 >## Для чего нужен ElastiCache?
 
 **ElastiCache** — управляемый кеш в памяти, который уменьшает нагрузку на БД и задержку чтения. AWS берёт на себя развёртывание, обслуживание, мониторинг и часть механизмов восстановления. Использование кеша требует изменений приложения: чтение/запись кеша, TTL и инвалидация.
@@ -317,8 +269,6 @@ ssh -i .\TestServer1_Key.pem ec2-user@<public-ip>
 Общий кеш позволяет хранить состояние вне отдельных backend-инстансов и горизонтально масштабировать приложение.
 
 <img src="diagrams/elasticache-overview.svg" alt="ElastiCache: кеш снижает нагрузку на БД" width="900">
-
-[Схема в Excalidraw](diagrams/elasticache-overview.excalidraw)
 
 >## Чем отличаются Redis и Memcached в ElastiCache?
 
@@ -328,8 +278,6 @@ ssh -i .\TestServer1_Key.pem ec2-user@<public-ip>
 
 <img src="diagrams/elasticache-redis-vs-memcached.svg" alt="ElastiCache: репликация Redis и шардинг Memcached" width="900">
 
-[Схема в Excalidraw](diagrams/elasticache-redis-vs-memcached.excalidraw)
-
 ## Route 53
 
 >## Как работает DNS через Route 53?
@@ -337,8 +285,6 @@ ssh -i .\TestServer1_Key.pem ec2-user@<public-ip>
 **Route 53** хранит DNS-записи и возвращает адрес/имя целевого ресурса. После DNS-разрешения клиент обращается к приложению напрямую; Route 53 не проксирует HTTP-трафик.
 
 <img src="diagrams/route53-dns.svg" alt="Route 53: DNS-запрос и обращение к приложению" width="900">
-
-[Схема в Excalidraw](diagrams/route53-dns.excalidraw)
 
 >## Какие DNS record types нужно знать?
 
@@ -349,19 +295,13 @@ ssh -i .\TestServer1_Key.pem ec2-user@<public-ip>
 
 <img src="diagrams/route53-record-types.svg" alt="DNS: что содержат A, AAAA, CNAME и NS" width="900">
 
-[Схема в Excalidraw](diagrams/route53-record-types.excalidraw)
-
 >## Чем отличаются Public и Private Hosted Zones?
 
 **Hosted Zone** — набор DNS-записей для домена и его поддоменов. **Public Hosted Zone** доступна через публичный DNS. **Private Hosted Zone** разрешается внутри связанных с ней VPC, например для имён внутренних API и БД.
 
 <img src="diagrams/route53-hosted-zones-overview.svg" alt="Hosted Zone: домен и набор его DNS-записей" width="900">
 
-[Схема в Excalidraw](diagrams/route53-hosted-zones-overview.excalidraw)
-
 <img src="diagrams/route53-hosted-zones.svg" alt="Route 53: Public и Private Hosted Zones" width="900">
-
-[Схема в Excalidraw](diagrams/route53-hosted-zones.excalidraw)
 
 >## Чем Alias отличается от CNAME?
 
@@ -369,15 +309,11 @@ ssh -i .\TestServer1_Key.pem ec2-user@<public-ip>
 
 <img src="diagrams/route53-cname-vs-alias.svg" alt="CNAME и Alias: имя назначения и корень домена" width="900">
 
-[Схема в Excalidraw](diagrams/route53-cname-vs-alias.excalidraw)
-
 >## На какие ресурсы можно направить Alias record?
 
 Например: ELB, CloudFront, API Gateway, Elastic Beanstalk, S3 website endpoint, VPC interface endpoint, Global Accelerator и поддерживаемую запись в той же hosted zone. Обычное DNS-имя EC2 не является Alias target — используют A-запись с IP или CNAME на поддомене.
 
 <img src="diagrams/route53-alias-targets.svg" alt="Route 53 Alias: поддерживаемые цели" width="900">
-
-[Схема в Excalidraw](diagrams/route53-alias-targets.excalidraw)
 
 >## Какие проверки здоровья поддерживает Route 53?
 
@@ -389,8 +325,6 @@ Health check связывают с DNS-записью, чтобы при мар�
 
 <img src="diagrams/route53-health-checks.svg" alt="Route 53: три источника состояния здоровья" width="900">
 
-[Схема в Excalidraw](diagrams/route53-health-checks.excalidraw)
-
 >## Как Route 53 проверяет публичный endpoint?
 
 Распределённые health checkers отправляют запросы с обычным интервалом 30 секунд либо быстрым 10 секунд. Для HTTP успешны ответы 2xx/3xx; можно дополнительно искать строку в первых 5120 байтах тела ответа. Есть настраиваемый порог последовательных успешных/неуспешных проверок.
@@ -399,15 +333,11 @@ Endpoint должен быть доступен для адресов health che
 
 <img src="diagrams/route53-endpoint-health-checks.svg" alt="Route 53: распределённая проверка публичного endpoint" width="900">
 
-[Схема в Excalidraw](diagrams/route53-endpoint-health-checks.excalidraw)
-
 >## Как проверять здоровье приватного ресурса?
 
 Публичные Route 53 health checkers не могут обратиться к приватному IP. Можно публиковать метрику в **CloudWatch**, создать alarm и использовать его состояние в Route 53 health check.
 
 <img src="diagrams/route53-private-health-checks.svg" alt="Route 53: здоровье приватного endpoint через CloudWatch" width="900">
-
-[Схема в Excalidraw](diagrams/route53-private-health-checks.excalidraw)
 
 >## Как работает Weighted Routing?
 
@@ -417,15 +347,11 @@ Endpoint должен быть доступен для адресов health che
 
 <img src="diagrams/route53-weighted-routing.svg" alt="Weighted Routing: относительные веса DNS-ответов" width="900">
 
-[Схема в Excalidraw](diagrams/route53-weighted-routing.excalidraw)
-
 >## Как работает Latency-Based Routing?
 
 **Latency Routing** выбирает регион с наименьшей измеренной сетевой задержкой для клиента/резолвера среди настроенных записей. Это не обязательно географически ближайший регион; результат зависит от маршрутов сети и меняется со временем.
 
 <img src="diagrams/route53-latency-routing.svg" alt="Latency Routing: регион с меньшей задержкой" width="900">
-
-[Схема в Excalidraw](diagrams/route53-latency-routing.excalidraw)
 
 >## Как работает Failover Routing?
 
@@ -433,21 +359,15 @@ Endpoint должен быть доступен для адресов health che
 
 <img src="diagrams/route53-failover.svg" alt="Route 53: Failover (active-passive)" width="900">
 
-[Схема в Excalidraw](diagrams/route53-failover.excalidraw)
-
 >## Чем отличаются Geolocation и Geoproximity Routing?
 
 **Geolocation** выбирает запись по местоположению клиента: континент, страна, штат США. Более точное правило имеет приоритет; нужна default-запись для остальных или неопределённых местоположений.
 
 <img src="diagrams/route53-geolocation-routing.svg" alt="Geolocation: точные правила имеют приоритет" width="900">
 
-[Схема в Excalidraw](diagrams/route53-geolocation-routing.excalidraw)
-
 **Geoproximity** выбирает ресурс по близости клиента к расположению ресурсов. Параметр **bias** расширяет или уменьшает географическую область, из которой трафик направляется к ресурсу.
 
 <img src="diagrams/route53-geoproximity-routing.svg" alt="Geoproximity: bias изменяет область выбора ресурса" width="900">
-
-[Схема в Excalidraw](diagrams/route53-geoproximity-routing.excalidraw)
 
 >## Для чего нужен Route 53 Traffic Flow?
 
@@ -455,23 +375,17 @@ Endpoint должен быть доступен для адресов health che
 
 <img src="diagrams/route53-traffic-flow.svg" alt="Traffic Flow: визуальное дерево DNS-маршрутизации" width="900">
 
-[Схема в Excalidraw](diagrams/route53-traffic-flow.excalidraw)
-
 >## Как работает IP-Based Routing?
 
 Выбор записи зависит от заданных диапазонов IP (**CIDR collections**). Например, клиентам конкретного провайдера или корпоративной сети можно возвращать определённый endpoint.
 
 <img src="diagrams/route53-ip-based-routing.svg" alt="IP-Based Routing: CIDR collection выбирает endpoint" width="900">
 
-[Схема в Excalidraw](diagrams/route53-ip-based-routing.excalidraw)
-
 >## Чем Multi-Value Answer Routing отличается от балансировщика?
 
 **Multi-Value Answer** возвращает до 8 здоровых записей в одном DNS-ответе. Клиент выбирает адрес и может пробовать другой при ошибке. Route 53 не балансирует отдельные соединения и не заменяет ELB.
 
 <img src="diagrams/route53-multivalue-routing.svg" alt="Multi-Value Answer: список здоровых адресов в DNS-ответе" width="900">
-
-[Схема в Excalidraw](diagrams/route53-multivalue-routing.excalidraw)
 
 ## VPC
 
@@ -481,8 +395,6 @@ Endpoint должен быть доступен для адресов health che
 
 <img src="diagrams/vpc-subnets.svg" alt="VPC и подсети: регион и зоны доступности" width="900">
 
-[Схема в Excalidraw](diagrams/vpc-subnets.excalidraw)
-
 >## Чем отличаются Internet Gateway и NAT Gateway?
 
 **Internet Gateway (IGW)** подключает VPC к интернету. Public subnet имеет маршрут к IGW; для прямого IPv4-доступа EC2 также нужен публичный IP и разрешающие правила безопасности.
@@ -490,8 +402,6 @@ Endpoint должен быть доступен для адресов health che
 **NAT Gateway** позволяет ресурсам private subnet инициировать IPv4-соединения с интернетом без входящих соединений извне. Public NAT Gateway размещают в public subnet с маршрутом к IGW и Elastic IP; private subnet направляет исходящий трафик в NAT.
 
 <img src="diagrams/vpc-internet-nat.svg" alt="VPC: доступ в интернет через Internet Gateway и NAT" width="900">
-
-[Схема в Excalidraw](diagrams/vpc-internet-nat.excalidraw)
 
 >## Чем Network ACL отличается от Security Group?
 
@@ -504,11 +414,7 @@ Endpoint должен быть доступен для адресов health che
 
 <img src="diagrams/vpc-security-layers.svg" alt="VPC: Network ACL и Security Group" width="900">
 
-[Схема в Excalidraw](diagrams/vpc-security-layers.excalidraw)
-
 <img src="diagrams/vpc-nacl-vs-security-group.svg" alt="Security Group и NACL: область и правила" width="900">
-
-[Схема в Excalidraw](diagrams/vpc-nacl-vs-security-group.excalidraw)
 
 >## Для чего нужны VPC Flow Logs?
 
@@ -522,8 +428,6 @@ Peering **не транзитивен**: соединения A–B и B–C н�
 
 <img src="diagrams/vpc-peering.svg" alt="VPC Peering: отдельное соединение для каждой пары" width="900">
 
-[Схема в Excalidraw](diagrams/vpc-peering.excalidraw)
-
 ## S3
 
 >## Как устроены buckets и имена объектов S3?
@@ -532,13 +436,9 @@ Peering **не транзитивен**: соединения A–B и B–C н�
 
 <img src="diagrams/s3-buckets.svg" alt="S3 bucket: регион, объекты и правила имени" width="900">
 
-[Схема в Excalidraw](diagrams/s3-buckets.excalidraw)
-
 **Object** хранит содержимое и метаданные. **Key** — полное имя объекта, например `reports/2026/result.json`. `reports/2026/` — префикс, а не настоящие директории; консоль имитирует папки.
 
 <img src="diagrams/s3-objects.svg" alt="S3 key: префикс и имя объекта, без настоящих директорий" width="900">
-
-[Схема в Excalidraw](diagrams/s3-objects.excalidraw)
 
 >## Как управлять доступом к S3?
 
@@ -551,21 +451,15 @@ Peering **не транзитивен**: соединения A–B и B–C н�
 
 <img src="diagrams/s3-security.svg" alt="S3: запрос разрешается политиками, запрет имеет приоритет" width="900">
 
-[Схема в Excalidraw](diagrams/s3-security.excalidraw)
-
 >## Как дать EC2-приложению и IAM user доступ к S3?
 
 Для EC2 назначают **IAM role через instance profile** с нужными S3-разрешениями; приложение получает временные credentials. Постоянные ключи не нужно сохранять на сервере.
 
 <img src="diagrams/s3-ec2-role.svg" alt="S3: доступ приложения через IAM role" width="900">
 
-[Схема в Excalidraw](diagrams/s3-ec2-role.excalidraw)
-
 Для IAM user назначают policy с нужными действиями и ресурсами. Для списка объектов нужен ресурс bucket, для `GetObject / PutObject` — ресурсы объектов.
 
 <img src="diagrams/s3-iam-user.svg" alt="S3: доступ пользователя через IAM policy" width="900">
-
-[Схема в Excalidraw](diagrams/s3-iam-user.excalidraw)
 
 >## Как работает S3 Versioning?
 
@@ -574,8 +468,6 @@ Versioning включают на уровне bucket. Запись по суще
 Объекты, созданные до включения, имеют `null` version ID. Приостановка versioning не удаляет накопленные версии. Обычное удаление в versioned bucket создаёт delete marker; удаление конкретной версии возможно отдельно.
 
 <img src="diagrams/s3-versioning.svg" alt="S3 Versioning: несколько версий одного key" width="900">
-
-[Схема в Excalidraw](diagrams/s3-versioning.excalidraw)
 
 >## Чем отличаются CRR и SRR в S3 Replication?
 
@@ -586,8 +478,6 @@ Versioning включают на уровне bucket. Запись по суще
 
 <img src="diagrams/s3-replication.svg" alt="S3 Replication: асинхронная копия в bucket назначения" width="900">
 
-[Схема в Excalidraw](diagrams/s3-replication.excalidraw)
-
 ## Классы хранения S3
 
 >## Когда использовать Standard и Infrequent Access?
@@ -596,15 +486,11 @@ Versioning включают на уровне bucket. Запись по суще
 
 <img src="diagrams/s3-standard.svg" alt="S3 Standard: размещение в нескольких AZ" width="900">
 
-[Схема в Excalidraw](diagrams/s3-standard.excalidraw)
-
 **Standard-IA** — редкий доступ с быстрым чтением; дешевле хранение, но оплачивается retrieval, расчётная доступность 99,9%. **One Zone-IA** хранит данные в одной AZ, расчётная доступность 99,5%; не защищает от потери всей зоны, поэтому подходит для восстанавливаемых данных.
 
 **Durability** — вероятность сохранения данных, **availability** — доступность чтения/записи; это разные показатели.
 
 <img src="diagrams/s3-infrequent-access.svg" alt="S3 Infrequent Access: скорость чтения и размещение" width="900">
-
-[Схема в Excalidraw](diagrams/s3-infrequent-access.excalidraw)
 
 >## Чем отличаются классы S3 Glacier?
 
@@ -618,8 +504,6 @@ Versioning включают на уровне bucket. Запись по суще
 
 <img src="diagrams/s3-glacier.svg" alt="S3 Glacier: время получения и срок хранения" width="900">
 
-[Схема в Excalidraw](diagrams/s3-glacier.excalidraw)
-
 >## Как работает S3 Intelligent-Tiering?
 
 Автоматически переводит объекты между уровнями по фактическому доступу: **Frequent Access**, после 30 дней без доступа — **Infrequent Access**, после 90 — **Archive Instant Access**.
@@ -627,8 +511,6 @@ Versioning включают на уровне bucket. Запись по суще
 Можно включить архивные уровни **Archive Access** (от 90 дней) и **Deep Archive Access** (от 180 дней). Для них нужно восстановление перед чтением. Есть плата за мониторинг подходящих объектов; стандартные уровни не имеют платы за retrieval.
 
 <img src="diagrams/s3-intelligent-tiering.svg" alt="S3 Intelligent-Tiering: уровни по времени без доступа" width="900">
-
-[Схема в Excalidraw](diagrams/s3-intelligent-tiering.excalidraw)
 
 ## События и производительность S3
 
@@ -640,8 +522,6 @@ Versioning включают на уровне bucket. Запись по суще
 
 <img src="diagrams/s3-event-notifications.svg" alt="S3: уведомления о событиях" width="900">
 
-[Схема в Excalidraw](diagrams/s3-event-notifications.excalidraw)
-
 >## От чего зависит производительность S3?
 
 S3 масштабирует запросы: не менее 3500 операций записи (`PUT / COPY / POST / DELETE`) или 5500 чтений (`GET / HEAD`) в секунду на partitioned prefix. Несколько префиксов позволяют распараллелить нагрузку; рост производительности происходит постепенно.
@@ -649,8 +529,6 @@ S3 масштабирует запросы: не менее 3500 операци�
 Задержка зависит от операции и нагрузки; 100–200 мс — ориентир, а не гарантия для каждого запроса. При резком росте нагрузки возможен `503 Slow Down`, поэтому нужны retries.
 
 <img src="diagrams/s3-performance.svg" alt="S3: параллельная нагрузка на несколько prefixes" width="900">
-
-[Схема в Excalidraw](diagrams/s3-performance.excalidraw)
 
 >## Для чего нужны Multipart Upload и Transfer Acceleration?
 
@@ -660,8 +538,6 @@ S3 масштабирует запросы: не менее 3500 операци�
 
 <img src="diagrams/s3-upload-performance.svg" alt="S3: Multipart Upload и Transfer Acceleration" width="900">
 
-[Схема в Excalidraw](diagrams/s3-upload-performance.excalidraw)
-
 >## Чем metadata отличаются от object tags и как искать по ним?
 
 **User-defined metadata** передаются при загрузке в заголовках `x-amz-meta-*`; имена нормализуются в нижний регистр. **Object tags** — отдельные пары key/value, применимые для IAM-условий, lifecycle и аналитики; их можно менять без перезаписи содержимого объекта.
@@ -669,8 +545,6 @@ S3 масштабирует запросы: не менее 3500 операци�
 Обычный `ListObjects` не предоставляет поиск по произвольной metadata. Для своего индекса можно использовать DynamoDB. Также есть **S3 Metadata**: управляемые таблицы метаданных с запросами через Athena и другие аналитические инструменты. [Документация S3 Metadata](https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-configuring.html).
 
 <img src="diagrams/s3-metadata-and-tags.svg" alt="S3: metadata, tags и индекс для поиска" width="900">
-
-[Схема в Excalidraw](diagrams/s3-metadata-and-tags.excalidraw)
 
 >## Для чего нужен S3 Presigned URL?
 
@@ -680,15 +554,11 @@ S3 масштабирует запросы: не менее 3500 операци�
 
 <img src="diagrams/s3-presigned-urls.svg" alt="Presigned URL: временное разрешение GET / PUT" width="900">
 
-[Схема в Excalidraw](diagrams/s3-presigned-urls.excalidraw)
-
 >## Почему S3 access logs нужно писать в отдельный bucket?
 
 **Server Access Logging** записывает обращения к bucket для аудита и анализа. Если писать логи в тот же bucket, запись каждого лога создаёт новое событие для логирования — возникает цикл. Destination bucket должен быть отдельным, в том же регионе и аккаунте.
 
 <img src="diagrams/s3-access-logs-loop.svg" alt="S3 access logs: отдельный bucket для логов" width="900">
-
-[Схема в Excalidraw](diagrams/s3-access-logs-loop.excalidraw)
 
 >## Когда для S3 нужен CORS?
 
@@ -697,8 +567,6 @@ S3 масштабирует запросы: не менее 3500 операци�
 Для части запросов браузер сначала отправляет **preflight OPTIONS**, затем основной запрос. CORS определяет, может ли браузер отдать ответ JavaScript; не выдаёт S3-права и не заменяет IAM/bucket policy.
 
 <img src="diagrams/s3-cors.svg" alt="CORS: preflight и запрос к другому origin" width="900">
-
-[Схема в Excalidraw](diagrams/s3-cors.excalidraw)
 
 ## Шифрование S3
 
@@ -715,19 +583,11 @@ S3 масштабирует запросы: не менее 3500 операци�
 
 <img src="diagrams/s3-sse-s3.svg" alt="S3: SSE-S3" width="900">
 
-[Схема в Excalidraw](diagrams/s3-sse-s3.excalidraw)
-
 <img src="diagrams/s3-sse-kms.svg" alt="S3: SSE-KMS" width="900">
-
-[Схема в Excalidraw](diagrams/s3-sse-kms.excalidraw)
 
 <img src="diagrams/s3-sse-c.svg" alt="S3: SSE-C" width="900">
 
-[Схема в Excalidraw](diagrams/s3-sse-c.excalidraw)
-
 <img src="diagrams/s3-client-encryption.svg" alt="S3: Client-side Encryption" width="900">
-
-[Схема в Excalidraw](diagrams/s3-client-encryption.excalidraw)
 
 ## S3 Access Points
 
@@ -739,15 +599,11 @@ Access Point policy и bucket policy должны быть согласован�
 
 <img src="diagrams/s3-access-points.svg" alt="S3 Access Points: отдельные политики для разных клиентов" width="900">
 
-[Схема в Excalidraw](diagrams/s3-access-points.excalidraw)
-
 >## Как настроить Access Point с доступом только из VPC?
 
 Создать Access Point с **VPC origin**, а для соединения с S3 использовать **VPC endpoint**. Проверить IAM, endpoint policy, access point policy и bucket policy — ни одна не должна запрещать нужную операцию.
 
 <img src="diagrams/s3-vpc-access-point.svg" alt="S3 Access Point с доступом только из VPC" width="900">
-
-[Схема в Excalidraw](diagrams/s3-vpc-access-point.excalidraw)
 
 >## Для чего предназначен S3 Object Lambda?
 
@@ -756,8 +612,6 @@ Access Point policy и bucket policy должны быть согласован�
 С 7 ноября 2025 года сервис доступен только существующим пользователям Object Lambda и отдельным APN-партнёрам. Для нового проекта нужно учитывать это ограничение. [Изменение доступности Object Lambda](https://docs.aws.amazon.com/AmazonS3/latest/userguide/amazons3-ol-change.html).
 
 <img src="diagrams/s3-object-lambda.svg" alt="S3 Object Lambda: преобразование объекта при чтении" width="900">
-
-[Схема в Excalidraw](diagrams/s3-object-lambda.excalidraw)
 
 ## Лимиты и повторные запросы
 
@@ -768,5 +622,3 @@ Access Point policy и bucket policy должны быть согласован�
 AWS SDK содержит retry-механизмы. При прямых API-вызовах их реализуют в клиенте. Повторяют подходящие временные 5xx и throttling (включая 429 и некоторые service-specific ошибки с HTTP 400); обычные ошибки авторизации или неверного запроса не исправятся повтором. Для операций с побочными эффектами учитывают идемпотентность.
 
 <img src="diagrams/aws-exponential-backoff.svg" alt="Exponential backoff: увеличение пауз между попытками" width="900">
-
-[Схема в Excalidraw](diagrams/aws-exponential-backoff.excalidraw)

@@ -57,8 +57,6 @@ A user can belong to multiple groups and inherit their permissions. Policies can
 
 <img src="diagrams/iam-groups.en.svg" alt="IAM: users, groups, and policies" width="900">
 
-[Editable Excalidraw diagram](diagrams/iam-groups.en.excalidraw)
-
 >## What does an IAM policy contain?
 
 A policy is a JSON document with a language version (`Version`) and a set of rules (`Statement`). The main statement fields are:
@@ -72,8 +70,6 @@ A policy is a JSON document with a language version (`Version`) and a set of rul
 
 <img src="diagrams/iam-policy-structure.en.svg" alt="IAM policy: access-rule structure" width="900">
 
-[Editable Excalidraw diagram](diagrams/iam-policy-structure.en.excalidraw)
-
 ## EC2 and storage
 
 >## What does EC2 provide?
@@ -81,8 +77,6 @@ A policy is a JSON document with a language version (`Version`) and a set of rul
 **EC2 (Elastic Compute Cloud)** provides virtual machines with configurable CPU, RAM, operating systems, and networking. Data can be stored on **EBS**, traffic distributed through **ELB**, and instance counts managed through **ASG**.
 
 <img src="diagrams/ec2-overview.en.svg" alt="EC2: compute, storage, load balancing, and scaling" width="900">
-
-[Editable Excalidraw diagram](diagrams/ec2-overview.en.excalidraw)
 
 >## What EC2 purchasing and placement options are available?
 
@@ -98,11 +92,7 @@ A policy is a JSON document with a language version (`Version`) and a set of rul
 
 <img src="diagrams/ec2-purchasing-options.en.svg" alt="EC2: purchasing and placement models" width="900">
 
-[Editable Excalidraw diagram](diagrams/ec2-purchasing-options.en.excalidraw)
-
 <img src="diagrams/ec2-purchasing-hotel-analogy.en.svg" alt="EC2 purchasing options: a hotel analogy" width="900">
-
-[Editable Excalidraw diagram](diagrams/ec2-purchasing-hotel-analogy.en.excalidraw)
 
 Compare instance types using [EC2 Instance Comparison](https://instances.vantage.sh/).
 
@@ -122,15 +112,11 @@ Use `ec2-user` for Amazon Linux; the username depends on the AMI.
 
 <img src="diagrams/ebs-availability-zones.en.svg" alt="EBS: attaching volumes within one Availability Zone" width="900">
 
-[Editable Excalidraw diagram](diagrams/ebs-availability-zones.en.excalidraw)
-
 >## What does EBS Multi-Attach allow?
 
 **Multi-Attach** connects one `io1` or `io2` volume to multiple compatible EC2 instances in the same AZ, up to 16 instances. The application must coordinate concurrent writes and use a filesystem designed for shared access. This is different from an ordinary shared filesystem such as EFS.
 
 <img src="diagrams/ebs-multi-attach.en.svg" alt="EBS Multi-Attach: one volume, multiple EC2 instances" width="900">
-
-[Editable Excalidraw diagram](diagrams/ebs-multi-attach.en.excalidraw)
 
 >## What types of EBS volumes are available?
 
@@ -143,15 +129,11 @@ An EC2 boot volume must use SSD storage. Consider capacity, IOPS, throughput, an
 
 <img src="diagrams/ebs-volume-types.en.svg" alt="EBS: volume type depends on the I/O workload" width="900">
 
-[Editable Excalidraw diagram](diagrams/ebs-volume-types.en.excalidraw)
-
 >## How do you move EBS data to another AZ?
 
 Create a **snapshot**, then restore a new EBS volume from it in the destination AZ. To move data to another Region, first copy the snapshot to that Region.
 
 <img src="diagrams/ebs-snapshot-migration.en.svg" alt="EBS: moving data through snapshots" width="900">
-
-[Editable Excalidraw diagram](diagrams/ebs-snapshot-migration.en.excalidraw)
 
 >## What additional features do EBS snapshots offer?
 
@@ -160,8 +142,6 @@ Create a **snapshot**, then restore a new EBS volume from it in the destination 
 - **Fast Snapshot Restore (FSR)** – creates volumes with full performance without waiting for blocks to load on first read; charged separately.
 
 <img src="diagrams/ebs-snapshot-features.en.svg" alt="EBS snapshots: archive, deletion protection, and fast startup" width="900">
-
-[Editable Excalidraw diagram](diagrams/ebs-snapshot-features.en.excalidraw)
 
 >## How does Instance Store differ from EBS?
 
@@ -175,8 +155,6 @@ Create a **snapshot**, then restore a new EBS volume from it in the destination 
 
 <img src="diagrams/efs-overview.en.svg" alt="EFS: shared filesystem across multiple AZs" width="900">
 
-[Editable Excalidraw diagram](diagrams/efs-overview.en.excalidraw)
-
 >## What EFS storage classes and deployment options are available?
 
 - **Standard** – frequently accessed files.
@@ -186,8 +164,6 @@ Create a **snapshot**, then restore a new EBS volume from it in the destination 
 **Lifecycle Management** moves files between classes. **Regional** stores data across multiple AZs; **One Zone** uses one AZ and suits recoverable data. The cost comparison between EFS and EBS depends on the Region, class, and workload.
 
 <img src="diagrams/efs-storage-classes.en.svg" alt="EFS: file lifecycle and deployment" width="900">
-
-[Editable Excalidraw diagram](diagrams/efs-storage-classes.en.excalidraw)
 
 ## Load balancing and scaling
 
@@ -201,11 +177,7 @@ Create a **snapshot**, then restore a new EBS volume from it in the destination 
 
 <img src="diagrams/nlb-overview.en.svg" alt="NLB: TCP / UDP / TLS and a static IP per AZ" width="900">
 
-[Editable Excalidraw diagram](diagrams/nlb-overview.en.excalidraw)
-
 <img src="diagrams/gateway-load-balancer.en.svg" alt="Gateway Load Balancer: traffic inspection by appliances" width="900">
-
-[Editable Excalidraw diagram](diagrams/gateway-load-balancer.en.excalidraw)
 
 >## How does ALB select an application, and how do you configure EC2 access?
 
@@ -218,8 +190,6 @@ A **listener** accepts the request; its rules select a **target group**, which c
 
 <img src="diagrams/alb-routing.en.svg" alt="ALB: routing HTTP requests by path" width="900">
 
-[Editable Excalidraw diagram](diagrams/alb-routing.en.excalidraw)
-
 >## What does Cross-Zone Load Balancing change?
 
 With **cross-zone** enabled, a load-balancer node distributes traffic across targets in multiple AZs. When disabled, it routes only to targets in its own AZ.
@@ -227,8 +197,6 @@ With **cross-zone** enabled, a load-balancer node distributes traffic across tar
 If each AZ receives 50% of traffic and they contain two and eight identical instances, without cross-zone each instance receives 25% and 6.25% respectively. With cross-zone, each of the ten receives about 10%. Default settings and inter-AZ traffic costs depend on the load-balancer type.
 
 <img src="diagrams/elb-cross-zone.en.svg" alt="Cross-zone load balancing: distribution across AZs" width="900">
-
-[Editable Excalidraw diagram](diagrams/elb-cross-zone.en.excalidraw)
 
 >## What capacity settings does an ASG have?
 
@@ -239,8 +207,6 @@ An **ASG (Auto Scaling Group)** automatically adjusts the number of EC2 instance
 - **Maximum** – the upper limit, which scaling policies cannot exceed.
 
 <img src="diagrams/asg-capacity.en.svg" alt="ASG: minimum, desired, and maximum capacity" width="900">
-
-[Editable Excalidraw diagram](diagrams/asg-capacity.en.excalidraw)
 
 >## Which metrics and policies are used to scale an ASG?
 
@@ -254,15 +220,11 @@ Metrics include average **CPU utilization**, ALB **RequestCountPerTarget**, netw
 
 <img src="diagrams/asg-scaling-metrics.en.svg" alt="ASG: metrics control instance counts" width="900">
 
-[Editable Excalidraw diagram](diagrams/asg-scaling-metrics.en.excalidraw)
-
 >## What is ASG Instance Refresh used for?
 
 **Instance Refresh** gradually replaces instances, for example after an AMI or launch-template update. The minimum healthy capacity setting controls how many instances remain available during the rollout; **instance warmup** gives new instances time to start and initialize.
 
 <img src="diagrams/asg-instance-refresh.en.svg" alt="ASG Instance Refresh: gradual instance replacement" width="900">
-
-[Editable Excalidraw diagram](diagrams/asg-instance-refresh.en.excalidraw)
 
 ## RDS and ElastiCache
 
@@ -272,15 +234,11 @@ Metrics include average **CPU utilization**, ALB **RequestCountPerTarget**, netw
 
 <img src="diagrams/rds-overview.en.svg" alt="RDS: tasks managed by AWS" width="900">
 
-[Editable Excalidraw diagram](diagrams/rds-overview.en.excalidraw)
-
 >## When does RDS Storage Auto Scaling trigger?
 
 Automatically increases allocated storage up to the configured **maximum storage threshold**. The main conditions are: no more than 10% free space for at least five minutes, completion of the previous storage optimization, and fewer than four storage changes during the preceding 24 hours. Storage is not automatically reduced. See the current conditions in the [RDS Storage Auto Scaling documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.Autoscaling.html).
 
 <img src="diagrams/rds-storage-auto-scaling.en.svg" alt="RDS Storage Auto Scaling: conditions and upper limit" width="900">
-
-[Editable Excalidraw diagram](diagrams/rds-storage-auto-scaling.en.excalidraw)
 
 >## What is an RDS Read Replica used for, and how does it differ from Multi-AZ?
 
@@ -290,15 +248,11 @@ A **Multi-AZ DB instance** with a standby is intended for high availability and 
 
 <img src="diagrams/rds-read-replica.en.svg" alt="RDS: offload the primary with a read replica" width="900">
 
-[Editable Excalidraw diagram](diagrams/rds-read-replica.en.excalidraw)
-
 >## How does a Read Replica's Region affect network costs?
 
 RDS does not charge for replication data transfer between RDS instances in the same Region, including across AZs. Cross-Region replication incurs inter-Region transfer charges. This does not make all application-to-database traffic free.
 
 <img src="diagrams/rds-read-replica-network-cost.en.svg" alt="RDS read replicas: replication data-transfer costs" width="900">
-
-[Editable Excalidraw diagram](diagrams/rds-read-replica-network-cost.en.excalidraw)
 
 >## What problem does RDS Proxy solve?
 
@@ -308,8 +262,6 @@ It supports IAM authentication and Secrets Manager integration. It operates insi
 
 <img src="diagrams/rds-proxy.en.svg" alt="RDS Proxy: many clients, one shared connection pool" width="900">
 
-[Editable Excalidraw diagram](diagrams/rds-proxy.en.excalidraw)
-
 >## What is ElastiCache used for?
 
 **ElastiCache** is a managed in-memory cache that reduces database load and read latency. AWS handles deployment, maintenance, monitoring, and parts of recovery. Applications must implement cache reads/writes, TTLs, and invalidation.
@@ -317,8 +269,6 @@ It supports IAM authentication and Secrets Manager integration. It operates insi
 A shared cache stores state outside individual backend instances, allowing the application to scale horizontally.
 
 <img src="diagrams/elasticache-overview.en.svg" alt="ElastiCache: caching reduces database load" width="900">
-
-[Editable Excalidraw diagram](diagrams/elasticache-overview.en.excalidraw)
 
 >## How do Redis and Memcached differ in ElastiCache?
 
@@ -328,8 +278,6 @@ A shared cache stores state outside individual backend instances, allowing the a
 
 <img src="diagrams/elasticache-redis-vs-memcached.en.svg" alt="ElastiCache: Redis replication and Memcached sharding" width="900">
 
-[Editable Excalidraw diagram](diagrams/elasticache-redis-vs-memcached.en.excalidraw)
-
 ## Route 53
 
 >## How does DNS resolution work through Route 53?
@@ -337,8 +285,6 @@ A shared cache stores state outside individual backend instances, allowing the a
 **Route 53** stores DNS records and returns a target resource's address or name. After DNS resolution, the client connects directly to the application; Route 53 does not proxy HTTP traffic.
 
 <img src="diagrams/route53-dns.en.svg" alt="Route 53: DNS lookup and application access" width="900">
-
-[Editable Excalidraw diagram](diagrams/route53-dns.en.excalidraw)
 
 >## Which DNS record types should you know?
 
@@ -349,19 +295,13 @@ A shared cache stores state outside individual backend instances, allowing the a
 
 <img src="diagrams/route53-record-types.en.svg" alt="DNS: contents of A, AAAA, CNAME, and NS records" width="900">
 
-[Editable Excalidraw diagram](diagrams/route53-record-types.en.excalidraw)
-
 >## How do Public and Private Hosted Zones differ?
 
 A **hosted zone** contains DNS records for a domain and its subdomains. A **Public Hosted Zone** is resolvable through public DNS. A **Private Hosted Zone** is resolvable inside its associated VPCs, for example for internal API and database names.
 
 <img src="diagrams/route53-hosted-zones-overview.en.svg" alt="Hosted Zone: a domain and its DNS records" width="900">
 
-[Editable Excalidraw diagram](diagrams/route53-hosted-zones-overview.en.excalidraw)
-
 <img src="diagrams/route53-hosted-zones.en.svg" alt="Route 53: Public and Private Hosted Zones" width="900">
-
-[Editable Excalidraw diagram](diagrams/route53-hosted-zones.en.excalidraw)
 
 >## How does an Alias differ from a CNAME?
 
@@ -369,15 +309,11 @@ A **CNAME** points to another DNS name and cannot be used at a domain apex. An *
 
 <img src="diagrams/route53-cname-vs-alias.en.svg" alt="CNAME and Alias: target names and the domain apex" width="900">
 
-[Editable Excalidraw diagram](diagrams/route53-cname-vs-alias.en.excalidraw)
-
 >## Which resources can an Alias record target?
 
 Examples include ELB, CloudFront, API Gateway, Elastic Beanstalk, S3 website endpoints, VPC interface endpoints, Global Accelerator, and supported records in the same hosted zone. An ordinary EC2 DNS name is not an Alias target; use an A record with its IP address or a CNAME on a subdomain.
 
 <img src="diagrams/route53-alias-targets.en.svg" alt="Route 53 Alias: supported targets" width="900">
-
-[Editable Excalidraw diagram](diagrams/route53-alias-targets.en.excalidraw)
 
 >## Which health checks does Route 53 support?
 
@@ -389,8 +325,6 @@ Associate a health check with a DNS record to account for target availability du
 
 <img src="diagrams/route53-health-checks.en.svg" alt="Route 53: three sources of health status" width="900">
 
-[Editable Excalidraw diagram](diagrams/route53-health-checks.en.excalidraw)
-
 >## How does Route 53 check a public endpoint?
 
 Distributed health checkers send requests at the standard 30-second interval or a fast 10-second interval. HTTP 2xx/3xx responses count as successful; an optional string match checks the first 5,120 bytes of the response body. The threshold for consecutive successful or failed checks is configurable.
@@ -399,15 +333,11 @@ The endpoint must be reachable from the health checkers' addresses. These checks
 
 <img src="diagrams/route53-endpoint-health-checks.en.svg" alt="Route 53: distributed public endpoint checks" width="900">
 
-[Editable Excalidraw diagram](diagrams/route53-endpoint-health-checks.en.excalidraw)
-
 >## How do you check a private resource's health?
 
 Public Route 53 health checkers cannot access a private IP. Publish a metric to **CloudWatch**, create an alarm, and use its state in a Route 53 health check.
 
 <img src="diagrams/route53-private-health-checks.en.svg" alt="Route 53: private endpoint health through CloudWatch" width="900">
-
-[Editable Excalidraw diagram](diagrams/route53-private-health-checks.en.excalidraw)
 
 >## How does Weighted Routing work?
 
@@ -417,15 +347,11 @@ A weight of zero normally excludes a record, but zero-weight records can act as 
 
 <img src="diagrams/route53-weighted-routing.en.svg" alt="Weighted Routing: relative DNS-response weights" width="900">
 
-[Editable Excalidraw diagram](diagrams/route53-weighted-routing.en.excalidraw)
-
 >## How does Latency-Based Routing work?
 
 **Latency Routing** selects the configured Region with the lowest measured network latency for the client/resolver. It is not necessarily the geographically closest Region; the result depends on network routes and changes over time.
 
 <img src="diagrams/route53-latency-routing.en.svg" alt="Latency Routing: select the lower-latency Region" width="900">
-
-[Editable Excalidraw diagram](diagrams/route53-latency-routing.en.excalidraw)
 
 >## How does Failover Routing work?
 
@@ -433,21 +359,15 @@ A weight of zero normally excludes a record, but zero-weight records can act as 
 
 <img src="diagrams/route53-failover.en.svg" alt="Route 53: Failover (active-passive)" width="900">
 
-[Editable Excalidraw diagram](diagrams/route53-failover.en.excalidraw)
-
 >## How do Geolocation and Geoproximity Routing differ?
 
 **Geolocation** selects records according to the client's location: continent, country, or US state. More specific rules take precedence; a default record covers other or unknown locations.
 
 <img src="diagrams/route53-geolocation-routing.en.svg" alt="Geolocation: more specific rules take priority" width="900">
 
-[Editable Excalidraw diagram](diagrams/route53-geolocation-routing.en.excalidraw)
-
 **Geoproximity** selects a resource based on the client's proximity to resource locations. A **bias** value expands or shrinks the geographic area routed to a resource.
 
 <img src="diagrams/route53-geoproximity-routing.en.svg" alt="Geoproximity: bias changes a resource's routing area" width="900">
-
-[Editable Excalidraw diagram](diagrams/route53-geoproximity-routing.en.excalidraw)
 
 >## What is Route 53 Traffic Flow used for?
 
@@ -455,23 +375,17 @@ A weight of zero normally excludes a record, but zero-weight records can act as 
 
 <img src="diagrams/route53-traffic-flow.en.svg" alt="Traffic Flow: visual DNS routing tree" width="900">
 
-[Editable Excalidraw diagram](diagrams/route53-traffic-flow.en.excalidraw)
-
 >## How does IP-Based Routing work?
 
 Record selection depends on configured IP ranges (**CIDR collections**). For example, clients from a particular ISP or corporate network can receive a specific endpoint.
 
 <img src="diagrams/route53-ip-based-routing.en.svg" alt="IP-Based Routing: CIDR collections select endpoints" width="900">
 
-[Editable Excalidraw diagram](diagrams/route53-ip-based-routing.en.excalidraw)
-
 >## How does Multi-Value Answer Routing differ from a load balancer?
 
 **Multi-Value Answer** returns up to eight healthy records in a DNS response. The client selects an address and can try another on failure. Route 53 does not balance individual connections and does not replace ELB.
 
 <img src="diagrams/route53-multivalue-routing.en.svg" alt="Multi-Value Answer: healthy addresses in a DNS response" width="900">
-
-[Editable Excalidraw diagram](diagrams/route53-multivalue-routing.en.excalidraw)
 
 ## VPC
 
@@ -481,8 +395,6 @@ A **VPC (Virtual Private Cloud)** is a network within a Region. A **subnet** bel
 
 <img src="diagrams/vpc-subnets.en.svg" alt="VPC and subnets: Region and Availability Zones" width="900">
 
-[Editable Excalidraw diagram](diagrams/vpc-subnets.en.excalidraw)
-
 >## How do Internet Gateway and NAT Gateway differ?
 
 An **Internet Gateway (IGW)** connects a VPC to the internet. A public subnet has a route to the IGW; direct IPv4 access also requires a public EC2 IP address and permissive security rules.
@@ -490,8 +402,6 @@ An **Internet Gateway (IGW)** connects a VPC to the internet. A public subnet ha
 A **NAT Gateway** allows resources in private subnets to initiate IPv4 internet connections without accepting unsolicited inbound connections. A public NAT Gateway is placed in a public subnet with an IGW route and an Elastic IP; private subnets route outbound traffic through NAT.
 
 <img src="diagrams/vpc-internet-nat.en.svg" alt="VPC: internet access through Internet Gateway and NAT" width="900">
-
-[Editable Excalidraw diagram](diagrams/vpc-internet-nat.en.excalidraw)
 
 >## How does a Network ACL differ from a Security Group?
 
@@ -504,11 +414,7 @@ A **NAT Gateway** allows resources in private subnets to initiate IPv4 internet 
 
 <img src="diagrams/vpc-security-layers.en.svg" alt="VPC: Network ACL and Security Group" width="900">
 
-[Editable Excalidraw diagram](diagrams/vpc-security-layers.en.excalidraw)
-
 <img src="diagrams/vpc-nacl-vs-security-group.en.svg" alt="Security Group and NACL: scope and rules" width="900">
-
-[Editable Excalidraw diagram](diagrams/vpc-nacl-vs-security-group.en.excalidraw)
 
 >## What are VPC Flow Logs used for?
 
@@ -522,8 +428,6 @@ Peering is **not transitive**: A–B and B–C connections do not give A access 
 
 <img src="diagrams/vpc-peering.en.svg" alt="VPC Peering: a separate connection for each pair" width="900">
 
-[Editable Excalidraw diagram](diagrams/vpc-peering.en.excalidraw)
-
 ## S3
 
 >## How are S3 buckets and object names organized?
@@ -532,13 +436,9 @@ Peering is **not transitive**: A–B and B–C connections do not give A access 
 
 <img src="diagrams/s3-buckets.en.svg" alt="S3 bucket: Region, objects, and naming rules" width="900">
 
-[Editable Excalidraw diagram](diagrams/s3-buckets.en.excalidraw)
-
 An **object** stores content and metadata. Its **key** is its full name, for example `reports/2026/result.json`. `reports/2026/` is a prefix rather than a real directory; the console simulates folders.
 
 <img src="diagrams/s3-objects.en.svg" alt="S3 key: prefix and object name, without real directories" width="900">
-
-[Editable Excalidraw diagram](diagrams/s3-objects.en.excalidraw)
 
 >## How do you control access to S3?
 
@@ -551,21 +451,15 @@ Within one account, an identity or resource policy can grant access if there is 
 
 <img src="diagrams/s3-security.en.svg" alt="S3: policies grant access; explicit denial takes priority" width="900">
 
-[Editable Excalidraw diagram](diagrams/s3-security.en.excalidraw)
-
 >## How do you give an EC2 application and an IAM user access to S3?
 
 Assign EC2 an **IAM role through an instance profile** with the required S3 permissions. The application obtains temporary credentials; permanent keys do not need to be stored on the server.
 
 <img src="diagrams/s3-ec2-role.en.svg" alt="S3: application access through an IAM role" width="900">
 
-[Editable Excalidraw diagram](diagrams/s3-ec2-role.en.excalidraw)
-
 Assign the IAM user a policy specifying the required actions and resources. Listing objects requires the bucket resource; `GetObject / PutObject` requires object resources.
 
 <img src="diagrams/s3-iam-user.en.svg" alt="S3: user access through an IAM policy" width="900">
-
-[Editable Excalidraw diagram](diagrams/s3-iam-user.en.excalidraw)
 
 >## How does S3 Versioning work?
 
@@ -574,8 +468,6 @@ Versioning is enabled at the bucket level. Writing to an existing key creates a 
 Objects created before versioning was enabled have a `null` version ID. Suspending versioning does not delete existing versions. Ordinary deletion in a versioned bucket creates a delete marker; individual versions can be deleted separately.
 
 <img src="diagrams/s3-versioning.en.svg" alt="S3 Versioning: multiple versions of one key" width="900">
-
-[Editable Excalidraw diagram](diagrams/s3-versioning.en.excalidraw)
 
 >## How do CRR and SRR differ in S3 Replication?
 
@@ -586,8 +478,6 @@ Replication is asynchronous. Both buckets must have versioning enabled, and the 
 
 <img src="diagrams/s3-replication.en.svg" alt="S3 Replication: asynchronous copy to the destination bucket" width="900">
 
-[Editable Excalidraw diagram](diagrams/s3-replication.en.excalidraw)
-
 ## S3 storage classes
 
 >## When should you use Standard and Infrequent Access?
@@ -596,15 +486,11 @@ Replication is asynchronous. Both buckets must have versioning enabled, and the 
 
 <img src="diagrams/s3-standard.en.svg" alt="S3 Standard: storage across multiple AZs" width="900">
 
-[Editable Excalidraw diagram](diagrams/s3-standard.en.excalidraw)
-
 **Standard-IA** provides infrequent access with fast retrieval, cheaper storage, retrieval charges, and designed availability of 99.9%. **One Zone-IA** stores data in one AZ with designed availability of 99.5%. It does not protect against loss of the entire zone and therefore suits recoverable data.
 
 **Durability** describes the likelihood of retaining data; **availability** describes the ability to read and write it. These are different measures.
 
 <img src="diagrams/s3-infrequent-access.en.svg" alt="S3 Infrequent Access: retrieval speed and placement" width="900">
-
-[Editable Excalidraw diagram](diagrams/s3-infrequent-access.en.excalidraw)
 
 >## How do S3 Glacier storage classes differ?
 
@@ -618,8 +504,6 @@ Flexible Retrieval and Deep Archive require restoration before reading. Pricing 
 
 <img src="diagrams/s3-glacier.en.svg" alt="S3 Glacier: retrieval time and storage duration" width="900">
 
-[Editable Excalidraw diagram](diagrams/s3-glacier.en.excalidraw)
-
 >## How does S3 Intelligent-Tiering work?
 
 It automatically moves objects between tiers based on access patterns: **Frequent Access**, then **Infrequent Access** after 30 days without access, and **Archive Instant Access** after 90 days.
@@ -627,8 +511,6 @@ It automatically moves objects between tiers based on access patterns: **Frequen
 Optional archive tiers include **Archive Access** (from 90 days) and **Deep Archive Access** (from 180 days). They require restoration before reading. Eligible objects incur monitoring charges; the standard tiers have no retrieval charges.
 
 <img src="diagrams/s3-intelligent-tiering.en.svg" alt="S3 Intelligent-Tiering: tiers based on time without access" width="900">
-
-[Editable Excalidraw diagram](diagrams/s3-intelligent-tiering.en.excalidraw)
 
 ## S3 events and performance
 
@@ -640,8 +522,6 @@ Handlers must account for possible duplicate events and be idempotent.
 
 <img src="diagrams/s3-event-notifications.en.svg" alt="S3: event notifications" width="900">
 
-[Editable Excalidraw diagram](diagrams/s3-event-notifications.en.excalidraw)
-
 >## What determines S3 performance?
 
 S3 scales to at least 3,500 writes (`PUT / COPY / POST / DELETE`) or 5,500 reads (`GET / HEAD`) per second per partitioned prefix. Multiple prefixes allow parallel load distribution; scaling occurs gradually.
@@ -649,8 +529,6 @@ S3 scales to at least 3,500 writes (`PUT / COPY / POST / DELETE`) or 5,500 reads
 Latency depends on operation and workload; 100–200 ms is a guideline rather than a per-request guarantee. Sudden load increases can cause `503 Slow Down`, so clients need retries.
 
 <img src="diagrams/s3-performance.en.svg" alt="S3: parallel workloads across multiple prefixes" width="900">
-
-[Editable Excalidraw diagram](diagrams/s3-performance.en.excalidraw)
 
 >## What are Multipart Upload and Transfer Acceleration used for?
 
@@ -660,8 +538,6 @@ Latency depends on operation and workload; 100–200 ms is a guideline rather th
 
 <img src="diagrams/s3-upload-performance.en.svg" alt="S3: Multipart Upload and Transfer Acceleration" width="900">
 
-[Editable Excalidraw diagram](diagrams/s3-upload-performance.en.excalidraw)
-
 >## How do metadata and object tags differ, and how can you search them?
 
 **User-defined metadata** is sent during upload in `x-amz-meta-*` headers; names are normalized to lowercase. **Object tags** are separate key/value pairs used in IAM conditions, lifecycle rules, and analytics. They can be changed without rewriting object content.
@@ -669,8 +545,6 @@ Latency depends on operation and workload; 100–200 ms is a guideline rather th
 Ordinary `ListObjects` does not search arbitrary metadata. DynamoDB can provide a custom index. **S3 Metadata** also offers managed metadata tables queryable through Athena and other analytics tools. [S3 Metadata documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-configuring.html).
 
 <img src="diagrams/s3-metadata-and-tags.en.svg" alt="S3: metadata, tags, and a search index" width="900">
-
-[Editable Excalidraw diagram](diagrams/s3-metadata-and-tags.en.excalidraw)
 
 >## What is an S3 Presigned URL used for?
 
@@ -680,15 +554,11 @@ The console supports expiration from one minute to 12 hours; CLI/SDK URLs signed
 
 <img src="diagrams/s3-presigned-urls.en.svg" alt="Presigned URL: temporary GET / PUT access" width="900">
 
-[Editable Excalidraw diagram](diagrams/s3-presigned-urls.en.excalidraw)
-
 >## Why should S3 access logs go to a separate bucket?
 
 **Server Access Logging** records bucket requests for auditing and analysis. Writing logs to the same bucket causes each log write to generate another loggable request, creating a loop. The destination must be a separate bucket in the same Region and account.
 
 <img src="diagrams/s3-access-logs-loop.en.svg" alt="S3 access logs: a separate destination bucket" width="900">
-
-[Editable Excalidraw diagram](diagrams/s3-access-logs-loop.en.excalidraw)
 
 >## When does S3 need CORS?
 
@@ -697,8 +567,6 @@ The console supports expiration from one minute to 12 hours; CLI/SDK URLs signed
 For some requests, the browser first sends a **preflight OPTIONS** request, then the actual request. CORS controls whether the browser exposes the response to JavaScript; it does not grant S3 permissions or replace IAM/bucket policies.
 
 <img src="diagrams/s3-cors.en.svg" alt="CORS: preflight and cross-origin requests" width="900">
-
-[Editable Excalidraw diagram](diagrams/s3-cors.en.excalidraw)
 
 ## S3 encryption
 
@@ -715,19 +583,11 @@ Since April 2026, **SSE-C is disabled by default for new general-purpose buckets
 
 <img src="diagrams/s3-sse-s3.en.svg" alt="S3: SSE-S3" width="900">
 
-[Editable Excalidraw diagram](diagrams/s3-sse-s3.en.excalidraw)
-
 <img src="diagrams/s3-sse-kms.en.svg" alt="S3: SSE-KMS" width="900">
-
-[Editable Excalidraw diagram](diagrams/s3-sse-kms.en.excalidraw)
 
 <img src="diagrams/s3-sse-c.en.svg" alt="S3: SSE-C" width="900">
 
-[Editable Excalidraw diagram](diagrams/s3-sse-c.en.excalidraw)
-
 <img src="diagrams/s3-client-encryption.en.svg" alt="S3: Client-side Encryption" width="900">
-
-[Editable Excalidraw diagram](diagrams/s3-client-encryption.en.excalidraw)
 
 ## S3 Access Points
 
@@ -739,15 +599,11 @@ The access point and bucket policies must align. Access can be restricted to a p
 
 <img src="diagrams/s3-access-points.en.svg" alt="S3 Access Points: separate policies for different clients" width="900">
 
-[Editable Excalidraw diagram](diagrams/s3-access-points.en.excalidraw)
-
 >## How do you configure an Access Point accessible only from a VPC?
 
 Create an access point with **VPC origin** and use a **VPC endpoint** to connect to S3. Check IAM, endpoint, access point, and bucket policies; none may deny the required operation.
 
 <img src="diagrams/s3-vpc-access-point.en.svg" alt="S3 Access Point restricted to a VPC" width="900">
-
-[Editable Excalidraw diagram](diagrams/s3-vpc-access-point.en.excalidraw)
 
 >## What is S3 Object Lambda used for?
 
@@ -756,8 +612,6 @@ Create an access point with **VPC origin** and use a **VPC endpoint** to connect
 Since November 7, 2025, the service is available only to existing Object Lambda customers and selected APN partners. New projects must account for this restriction. [Object Lambda availability change](https://docs.aws.amazon.com/AmazonS3/latest/userguide/amazons3-ol-change.html).
 
 <img src="diagrams/s3-object-lambda.en.svg" alt="S3 Object Lambda: transform an object on retrieval" width="900">
-
-[Editable Excalidraw diagram](diagrams/s3-object-lambda.en.excalidraw)
 
 ## Limits and retries
 
@@ -768,5 +622,3 @@ Since November 7, 2025, the service is available only to existing Object Lambda 
 AWS SDKs include retry mechanisms. Implement them in the client for direct API calls. Retry suitable temporary 5xx errors and throttling, including 429 and some service-specific HTTP 400 errors. Ordinary authorization or invalid-request errors are not fixed by retries. Account for idempotency when operations have side effects.
 
 <img src="diagrams/aws-exponential-backoff.en.svg" alt="Exponential backoff: increasing retry delays" width="900">
-
-[Editable Excalidraw diagram](diagrams/aws-exponential-backoff.en.excalidraw)

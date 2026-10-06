@@ -22,8 +22,6 @@ The collection of bounded contexts and their relationships is a **context map**.
 
 <img src="../images/ddd-strategic-modeling-1.en.svg" alt="Ddd strategic modeling 1" width="900">
 
-[Editable Excalidraw diagram](../images/ddd-strategic-modeling-1.en.excalidraw)
-
 Relationships between contexts can take different forms:
 
 - **Partnership** — two teams coordinate the evolution of their interfaces to meet both systems' needs. They jointly plan development and manage integration.
@@ -33,8 +31,6 @@ Relationships between contexts can take different forms:
 - **Anti-Corruption Layer** — a translation layer that protects the downstream model. The downstream client isolates itself from the upstream system and exposes its capabilities in the terms of its own domain model.
 
 <img src="../images/ddd-strategic-modeling-2.en.svg" alt="Ddd strategic modeling 2" width="900">
-
-[Editable Excalidraw diagram](../images/ddd-strategic-modeling-2.en.excalidraw)
 
 U means upstream; D means downstream.
 
@@ -73,8 +69,6 @@ Example events:
 
 <img src="../images/ddd-strategic-modeling-3.en.svg" alt="Ddd strategic modeling 3" width="900">
 
-[Editable Excalidraw diagram](../images/ddd-strategic-modeling-3.en.excalidraw)
-
 1. Add **commands** to the events: these initiate an action or event processing. A command usually originates outside the system, for example from a user.
 
 - Create an order.
@@ -84,8 +78,6 @@ Example events:
 - Cancel an order.
 
 <img src="../images/ddd-strategic-modeling-4.en.svg" alt="Ddd strategic modeling 4" width="900">
-
-[Editable Excalidraw diagram](../images/ddd-strategic-modeling-4.en.excalidraw)
 
 1. Add other types of sticky notes:
 

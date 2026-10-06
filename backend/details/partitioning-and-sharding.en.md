@@ -90,8 +90,6 @@ Use this when write load is hundreds or thousands of times higher than read load
 
 <img src="../images/partitioning-and-sharding-8.en.svg" alt="Partitioning and sharding 8" width="600">
 
-[Editable Excalidraw diagram](../images/partitioning-and-sharding-8.en.excalidraw)
-
 # Client–shard communication
 
 ### Direct access
