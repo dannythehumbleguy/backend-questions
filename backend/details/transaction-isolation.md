@@ -1,3 +1,5 @@
+Русский | [English](transaction-isolation.en.md)
+
 # Уровни изоляции транзакций
 
 ## Предисловие
