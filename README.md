@@ -7,6 +7,7 @@
 
 - [Backend](backend/questions.md)
 - [.NET C#](dotnet/questions.md)
+- [AWS](aws/questions.md)
 - [Базовые понятия backend](backend/basics.md)
 
 # Правила для контрибьторов
